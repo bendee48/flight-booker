@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  start_airport_id: 1
+  end_airport_id: 1
+  start_time: 2020-06-23 17:06:19
+  duration: 2020-06-23 17:06:19
+
+two:
+  start_airport_id: 1
+  end_airport_id: 1
+  start_time: 2020-06-23 17:06:19
+  duration: 2020-06-23 17:06:19
