@@ -4,6 +4,6 @@ class FlightsController < ApplicationController
     @dates = Flight.all.map do |flight| 
       date = flight.start_time.strftime("%m/%d/%Y")
       [date, date]
-    end
+    end.uniq
   end
 end
