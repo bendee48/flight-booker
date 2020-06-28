@@ -6,8 +6,21 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Airport.find_or_create_by(name: 'Copenhagen Airport', code: 'CPH', country: 'Denmark' )
-Airport.find_or_create_by(name: 'Munich Airport', code: 'MUC', country: 'Germany' )
-Airport.find_or_create_by(name: 'Lisbon Airport', code: 'LIS', country: 'Portugal' )
-Airport.find_or_create_by(name: 'Ibiza Airport', code: 'IBZ', country: 'Spain' )
-Airport.find_or_create_by(name: 'Paris Charles de Gaulle', code: 'CDG', country: 'France' )
+# Airport model
+Airport.destroy_all
+air1 = Airport.find_or_create_by(name: 'Copenhagen Airport', code: 'CPH', country: 'Denmark' )
+air2 = Airport.find_or_create_by(name: 'Munich Airport', code: 'MUC', country: 'Germany' )
+air3 = Airport.find_or_create_by(name: 'Lisbon Airport', code: 'LIS', country: 'Portugal' )
+air4 = Airport.find_or_create_by(name: 'Ibiza Airport', code: 'IBZ', country: 'Spain' )
+air5 = Airport.find_or_create_by(name: 'Paris Charles de Gaulle', code: 'CDG', country: 'France' )
+
+# Flight Model
+Flight.destroy_all
+month = rand(1..12)
+day = rand(1..28)
+date = DateTime.new(2020, month, day, 12, 30, 0)
+Flight.create!(start_airport_id: air1.id, finish_airport_id: air2.id, start_time: date, duration: "2 hrs" )
+Flight.create!(start_airport_id: air3.id, finish_airport_id: air4.id, start_time: date, duration: "1.5 hrs" )
+Flight.create!(start_airport_id: air2.id, finish_airport_id: air5.id, start_time: date, duration: "3 hrs" )
+Flight.create!(start_airport_id: air4.id, finish_airport_id: air1.id, start_time: date, duration: "1.4 hrs" )
+Flight.create!(start_airport_id: air1.id, finish_airport_id: air2.id, start_time: date, duration: "1 hr" )
