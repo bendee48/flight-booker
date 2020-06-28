@@ -1,2 +1,9 @@
 <h1>Flights#index</h1>
 <p>Find me in app/views/flights/index.html.erb</p>
+
+<%= label(:airport_id, :from) %>
+<%= collection_select(:from, :airport_id, Airport.all, :id, :name) %>
+<%= label(:airport_id, :to) %>
+<%= collection_select(:to, :airport_id, Airport.all, :id, :name) %><br />
+<%= label(:passengers, :passengers) %>
+<%= select_tag(:passengers, options_for_select([[1,1],[2,2],[3,3],[4,4]]))%>
