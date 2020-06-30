@@ -1,10 +1,7 @@
 class FlightsController < ApplicationController
   def index
     @airports = Airport.all
-    @dates = Flight.all.map do |flight| 
-      date = flight.start_time.strftime("%d/%m/%Y")
-      [date, flight.start_time]
-    end.uniq { |date| date.first }.sort
+    @dates = Flight.format_dates_for_selection
 
     if params[:date]
       selected_date = params[:date].scan(/\d{4}-\d{2}-\d{2}/)
