@@ -20,8 +20,8 @@
     <% @search_results.each do |flight| %>
       <li>From: <%= flight.from_airport.name %></li>
       <li>To: <%= flight.to_airport.name %></li>
-      <li>To: <%= flight.start_time %></li>
-      <li>To: <%= flight.duration %></li><br />
+      <li>Time: <%= flight.start_time %></li>
+      <li>Duration: <%= flight.duration %></li><br />
     <% end %>
   </ul>
 <% end %>
