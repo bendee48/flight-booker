@@ -16,12 +16,19 @@
 <%= @flight %>
 
 <% if @search_results %>
-  <ul>
-    <% @search_results.each do |flight| %>
-      <li>From: <%= flight.from_airport.name %></li>
-      <li>To: <%= flight.to_airport.name %></li>
-      <li>Time: <%= flight.start_time %></li>
-      <li>Duration: <%= flight.duration %></li><br />
+  <h2>Search Results</h2> 
+    <%= form_with url: root_path, method: :get, local: true do |f| %>
+      <% @search_results.each do |flight| %>
+        <ul>
+          <li>From: <%= flight.from_airport.name %></li>
+          <li>To: <%= flight.to_airport.name %></li>
+          <li>Time: <%= flight.start_time %></li>
+          <li>Duration: <%= flight.duration %></li>
+          <%= f.radio_button :flight, flight.id %>
+          <%= f.label(:flight, "Select Flight") %>
+        </ul>
+      <% end %>
+      <%= f.hidden_field :passengers, value: @passengers %>
+      <%= f.submit 'Book Flight' %>
     <% end %>
-  </ul>
 <% end %>
