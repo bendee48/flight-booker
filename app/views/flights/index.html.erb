@@ -1,7 +1,7 @@
 <h1>Flights#index</h1>
 <p>Find me in app/views/flights/index.html.erb</p>
 
-<%= form_with url: root_path, method: 'get' do |f| %>
+<%= form_with url: '/', method: :get do |f| %>
   <%= f.label(:airport_id, "From: ") %>
   <%= f.collection_select(:from_id, @airports, :id, :name) %>
   <%= f.label(:airport_id, "To: ") %>
@@ -13,4 +13,4 @@
   <%= f.submit "Search" %>
 <% end %>
 
-
+<p><%= @airport %></p>
