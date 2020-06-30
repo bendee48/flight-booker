@@ -3,13 +3,13 @@
 
 <%= form_with url: '/', method: :get, local: true do |f| %>
   <%= f.label(:airport_id, "From: ") %>
-  <%= f.collection_select(:from_id, @airports, :id, :name) %>
+  <%= f.collection_select('search[from_id]', @airports, :id, :name) %>
   <%= f.label(:airport_id, "To: ") %>
-  <%= f.collection_select(:to_id, @airports, :id, :name) %><br />
+  <%= f.collection_select('search[to_id]', @airports, :id, :name) %><br />
   <%= f.label(:passengers, "Passengers: ") %>
-  <%= f.select(:passengers, options_for_select([[1,1],[2,2],[3,3],[4,4]]))%><br />
+  <%= f.select('search[passengers]', options_for_select([[1,1],[2,2],[3,3],[4,4]]))%><br />
   <%= f.label(:flight_date, "Date: ") %>
-  <%= f.select(:date, options_for_select(@dates)) %>
+  <%= f.select('search[date]', options_for_select(@dates)) %>
   <%= f.submit "Search" %>
 <% end %>
 
