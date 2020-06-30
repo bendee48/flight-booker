@@ -20,7 +20,7 @@ Flight.destroy_all
 
 airports = [air1, air2, air3, air4, air5, air6]
 
-20.times do
+150.times do
   Flight.create! do |f|
     start, finish = airports.sample(2)
     f.start_airport_id = start.id
