@@ -13,8 +13,6 @@
   <%= f.submit "Search" %>
 <% end %>
 
-<%= @flight %>
-
 <% if @search_results %>
   <h2>Search Results</h2> 
     <%= form_with url: new_booking_path, method: :get, local: true do |f| %>

@@ -2,5 +2,12 @@
 
 <%= form_with model: @booking do |f| %>
   <%= label_tag :date %>
-  <%= text_field(:flight, :start_time) %>
+  <%= text_field(:flight, :start_time) %><br />
+  <%= label_tag 'Flight ID' %>
+  <%= text_field(:flight, :id) %><br />
+  <%= label_tag :from %>
+  <%= text_field_tag('flight[from]', @flight.from_airport.name) %><br />
+  <%= label_tag :to %>
+  <%= text_field_tag('flight[to]', @flight.to_airport.name) %><br />
+  
 <% end%>
