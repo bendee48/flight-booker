@@ -9,5 +9,11 @@
   <%= text_field_tag('flight[from]', @flight.from_airport.name) %><br />
   <%= label_tag :to %>
   <%= text_field_tag('flight[to]', @flight.to_airport.name) %><br />
-  
+    <%= f.fields_for @booking.passengers.build do |pass_form| %>
+      <%= pass_form.label :name %>
+      <%= pass_form.text_field :name %>
+      <%= pass_form.label :email %>
+      <%= pass_form.text_field :email %>
+    <% end %>
+  <%= f.submit %>
 <% end%>

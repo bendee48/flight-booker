@@ -3,4 +3,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new
     @flight = Flight.find(params[:flight])
   end
+
+  def create
+  end
 end
