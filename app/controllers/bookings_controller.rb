@@ -15,7 +15,7 @@ class BookingsController < ApplicationController
       flash.notice = "hurrah"
       redirect_to @booking
     else
-      flash.notice = "Something went wrong!"
+      flash.now.notice = "Something went wrong!"
       render :new
     end
   end
