@@ -15,12 +15,13 @@ class BookingsController < ApplicationController
       flash.notice = "hurrah"
       redirect_to @booking
     else
-      flash.now.notice = "Something went wrong!"
       render :new
     end
   end
 
   def show
+    @booking = Booking.find(params[:id])
+    @flight = @booking.flight
   end
 
   private
