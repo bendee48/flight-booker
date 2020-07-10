@@ -1,13 +1,17 @@
 class PassengerMailer < ApplicationMailer
   def self.booking_confirmed(booking)
-    passenger_emails = booking.passengers.map { |p| p.email }
+    passengers = booking.passengers
     
-    passenger_emails.each do |email|
-      send_booking_confirmation(email).deliver_later
+    passengers.each do |p|
+      send_booking_confirmation(p.email, p.name, booking).deliver_later
     end
   end
 
-  def send_booking_confirmation(email)
+  # To send mulitple emails use additional method to return mail object first  
+  def send_booking_confirmation(email, name, booking)
+    @booking = booking
+    @name = name
+    @flight = booking.flight
     mail(to: email, subject: 'Thanks for booking with us!')
   end
 end

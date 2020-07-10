@@ -1,1 +1,11 @@
-Thanks for booking with us.
+Thanks <%= @name.capitalize %> for booking your trip with us!
+Booking confirmation below <%= @hello %>
+
+From: <%= @flight.from_airport.name %>
+To: <%= @flight.to_airport.name %>
+Date: <%= @flight.start_time %>
+Duration: <%= @flight.duration %>
+
+Thanks for booking your trip with FlightBooker.com.
+
+We hope you enjoy your journey!

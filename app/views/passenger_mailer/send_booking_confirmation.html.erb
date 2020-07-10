@@ -4,9 +4,17 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Booking confirmation below</h1>
+    <h1>Thanks <%= @name.capitalize %> for booking your trip with us!</h1>
+    <h3>Booking confirmation below <%= @hello %></h3>
+    <ul>
+      <li>From: <%= @flight.from_airport.name %></li>
+      <li>To: <%= @flight.to_airport.name %></li>
+      <li>Date: <%= @flight.start_time %></li>
+      <li>Duration: <%= @flight.duration %></li>
+    <ul><br />
     <p>
-      Thanks for booking with us.<br>
+      Thanks for booking your trip with FlightBooker.com.<br>
     </p>
+    <p>We hope you enjoy your journey!</p>
   </body>
 </html>
