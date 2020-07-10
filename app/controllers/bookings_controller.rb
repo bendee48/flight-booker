@@ -10,9 +10,10 @@ class BookingsController < ApplicationController
   def create
     params[:booking][:flight_id] = params[:flight][:id]
     @booking = Booking.new(booking_params)
-    
+
     if @booking.save
       flash.notice = "hurrah"
+      PassengerMailer.with(booking: @booking).booking_confirmed.deliver_now
       redirect_to @booking
     else
       flash.now.notice = "Aargh"

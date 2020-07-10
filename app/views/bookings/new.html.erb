@@ -1,6 +1,6 @@
 <h1>Booking</h1>
 
-<%= form_with model: @booking do |f| %>
+<%= form_with model: @booking, local: true do |f| %>
   <%= f.fields_for :flight do |flight_form| %>
     <%= flight_form.label :date %>
     <%= text_field :flight, :start_time %><br />
